@@ -11,15 +11,23 @@ sudo apt-get install wiringpi
 ```
 
 ## Compiling the program
-### Build the static library
+### Build libraries and test program at once
+```
+make all
+```
+
+### Build separately
+#### Build the static library
 ```
 cd src
-g++ -c *.cpp
-ar -crs libmotorPi.a *.o
-rm -rf *.o
+make
 cd ..
 ```
-### Build test program
+#### Build test program
+```
+make
+```
+or
 ```
 g++ -o motor_test motor_test.cpp -lwiringPi -Isrc -Lsrc -lmotorPi
 ```
