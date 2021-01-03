@@ -13,26 +13,20 @@ sudo apt-get install wiringpi
 ## Compiling the program
 ### Build libraries and test program at once
 ```
-make all
+mkdir build
+cd build
+cmake ..
+make
 ```
 
-### Build separately
-#### Build the static library
+### Installing the library
 ```
-cd src
-make
-cd ..
-```
-#### Build test program
-```
-make
-```
-or
-```
-g++ -o motor_test motor_test.cpp -lwiringPi -Isrc -Lsrc -lmotorPi
+sudo make install
 ```
 
 ## Run test program
+### Test dual motor
+Run the following command under `build` directory created on build.
 ```
-./motor_test
+./test_dualmotor
 ```

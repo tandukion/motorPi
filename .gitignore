@@ -1,5 +1,2 @@
-# temporary output files
-*.o
-
-# static library
-*.a
+# build directory
+/build
