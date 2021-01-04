@@ -14,47 +14,47 @@ class DualMotorPi {
         /**
          * Motors defined as right and left motors.
          */
-        MotorPi right_motor;
-        MotorPi left_motor;
+        MotorPi rightMotor;
+        MotorPi leftMotor;
 
     public:
         /**
          * Initialize dual bridge channel of L298 driver with given GPIO pin. 
          * 
-         * @param right_pin_en  {int}   Enable pin for right motor
-         * @param right_pin_in1 {int}   Input 1 pin for right motor
-         * @param right_pin_in2 {int}   Input 2 pin for right motor
-         * @param left_pin_en   {int}   Enable pin for left motor
-         * @param left_pin_in1  {int}   Input 1 pin for left motor
-         * @param left_pin_in2  {int}   Input 2 pin for left motor
+         * @param rightPinEn    {int}   Enable pin for right motor
+         * @param rightPin1     {int}   Input 1 pin for right motor
+         * @param rightPin2     {int}   Input 2 pin for right motor
+         * @param leftPinEn     {int}   Enable pin for left motor
+         * @param leftPin1      {int}   Input 1 pin for left motor
+         * @param leftPin2      {int}   Input 2 pin for left motor
          */
-        void init(int right_pin_en, int right_pin_in1, int right_pin_in2,
-                  int left_pin_en, int left_pin_in1, int left_pin_in2);
+        void Init(int rightPinEn, int rightPin1, int rightPin2,
+                  int leftPinEn, int leftPin1, int leftPin2);
 
         /**
          * Stop motors
          */
-        void stop();
+        void Stop();
 
         /**
          * Set the motor speed in percentage of full speed.
          * 
          * @param speed     {double}    Speed of Motor in percentage.
          */
-        void set_speed(double speed);
+        void SetSpeed(double speed);
 
         /**
          * Move the motors in forward direction
          * 
          * @param speed {double}    Speed of Motor in percentage. Default to 100%.
          */
-        void move_forward(double speed=100);
+        void MoveForward(double speed=100);
         /**
          * Move the motors in backward direction
          * 
          * @param speed {double}    Speed of Motor in percentage. Default to 100%.
          */
-        void move_backward(double speed=100);
+        void MoveBackward(double speed=100);
 
 
         /**
@@ -64,19 +64,19 @@ class DualMotorPi {
          * 
          * @param angle {double}    Angle of rotation in radian.
          */
-        void rotate(double angle=0);
+        void Rotate(double angle=0);
         /**
          * Rotate the system to the right (clockwise of Z-axis).
          * 
          * @param angle {double}    Angle of rotation in radian.
          */
-        void turn_left(double angle=0);
+        void TurnLeft(double angle=0);
         /**
          * Rotate the system to the left (counter-clockwise of Z-axis).
          * 
          * @param angle {double}    Angle of rotation in radian.
          */
-        void turn_right(double angle=0);
+        void TurnRight(double angle=0);
 };
 
 #endif

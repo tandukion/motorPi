@@ -1,40 +1,40 @@
 #include "dualmotorPi.h"
 
-void DualMotorPi::init(int right_pin_en, int right_pin_in1, int right_pin_in2,
-                       int left_pin_en, int left_pin_in1, int left_pin_in2) {
+void DualMotorPi::Init(int rightPinEn, int rightPin1, int rightPin2,
+                       int leftPinEn, int leftPin1, int leftPin2) {
     // Init MotorPi class for right and left motor
-    right_motor.init(right_pin_en, right_pin_in1, right_pin_in2);
-    left_motor.init(left_pin_en, left_pin_in1, left_pin_in2);
+    rightMotor.Init(rightPinEn, rightPin1, rightPin2);
+    leftMotor.Init(leftPinEn, leftPin1, leftPin2);
 }
 
-void DualMotorPi::stop() {
-    right_motor.stop();
-    left_motor.stop();
+void DualMotorPi::Stop() {
+    rightMotor.Stop();
+    leftMotor.Stop();
 }
 
-void DualMotorPi::set_speed(double speed) {
-    right_motor.set_speed(speed);
-    left_motor.set_speed(speed);
+void DualMotorPi::SetSpeed(double speed) {
+    rightMotor.SetSpeed(speed);
+    leftMotor.SetSpeed(speed);
 }
 
-void DualMotorPi::move_forward(double speed) {
-    right_motor.move_forward(speed);
-    left_motor.move_forward(speed);
+void DualMotorPi::MoveForward(double speed) {
+    rightMotor.MoveForward(speed);
+    leftMotor.MoveForward(speed);
 }
 
-void DualMotorPi::move_backward(double speed) {
-    right_motor.move_backward(speed);
-    left_motor.move_backward(speed);
+void DualMotorPi::MoveBackward(double speed) {
+    rightMotor.MoveBackward(speed);
+    leftMotor.MoveBackward(speed);
 }
 
-void DualMotorPi::rotate(double angle) {
+void DualMotorPi::Rotate(double angle) {
     if (angle>0){
-        right_motor.move_forward();
-        left_motor.move_backward();
+        rightMotor.MoveForward();
+        leftMotor.MoveBackward();
     }
     else {
-        left_motor.move_forward();
-        right_motor.move_backward();
+        leftMotor.MoveForward();
+        rightMotor.MoveBackward();
     }
 
     // Currently using onlt sleep to control angle
@@ -45,13 +45,13 @@ void DualMotorPi::rotate(double angle) {
         usleep(10000);
     }
 
-    DualMotorPi::stop();
+    DualMotorPi::Stop();
 }
 
-void DualMotorPi::turn_left(double angle) {
-    DualMotorPi::rotate(angle);
+void DualMotorPi::TurnLeft(double angle) {
+    DualMotorPi::Rotate(angle);
 }
 
-void DualMotorPi::turn_right(double angle) {
-    DualMotorPi::rotate(-1 * angle);
+void DualMotorPi::TurnRight(double angle) {
+    DualMotorPi::Rotate(-1 * angle);
 }
