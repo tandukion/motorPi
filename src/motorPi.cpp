@@ -1,45 +1,45 @@
 #include "motorPi.h"
 
-void MotorPi::Init(int pinEn, int pinIn1, int pinIn2) {
+void MotorPi::Init(int pin_enable, int pin_in_1, int pin_in_2) {
     wiringPiSetup();
 
-    pinEN = pinEn;
-    pinIN1 = pinIn1;
-    pinIN2 = pinIn2;
+    pin_enable_ = pin_enable;
+    pin_in_1_ = pin_in_1;
+    pin_in_2_ = pin_in_2;
 
     // Direction setter pin
-    pinMode(pinIN1, OUTPUT);
-    pinMode(pinIN2, OUTPUT);
+    pinMode(pin_in_1_, OUTPUT);
+    pinMode(pin_in_2_, OUTPUT);
 
-    digitalWrite(pinIN1, LOW);
-    digitalWrite(pinIN2, LOW);
+    digitalWrite(pin_in_1_, LOW);
+    digitalWrite(pin_in_2_, LOW);
 
     // Enable pin. Use PWM to make speed changeable
-    softPwmCreate(pinEN, 0, 100);
+    softPwmCreate(pin_enable_, 0, 100);
 }
 
 void MotorPi::Stop() {
-    digitalWrite(pinIN1, LOW);
-    digitalWrite(pinIN2, LOW);
-    softPwmWrite(pinEN, 0);
+    digitalWrite(pin_in_1_, LOW);
+    digitalWrite(pin_in_2_, LOW);
+    softPwmWrite(pin_enable_, 0);
 }
 
 void MotorPi::SetSpeed(double speed) {
-    softPwmWrite(pinEN, int(speed));
+    softPwmWrite(pin_enable_, int(speed));
 }
 
 void MotorPi::Move(bool forward, double speed) {
     if (forward){
-        digitalWrite(pinIN1, HIGH);
-        digitalWrite(pinIN2, LOW);
+        digitalWrite(pin_in_1_, HIGH);
+        digitalWrite(pin_in_2_, LOW);
     }
     else{
-        digitalWrite(pinIN1, LOW);
-        digitalWrite(pinIN2, HIGH);
+        digitalWrite(pin_in_1_, LOW);
+        digitalWrite(pin_in_2_, HIGH);
     }
     
     // softPwm only accept integer
-    softPwmWrite(pinEN, int(speed));
+    softPwmWrite(pin_enable_, int(speed));
 }
 
 void MotorPi::MoveForward(double speed) {

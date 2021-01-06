@@ -8,16 +8,16 @@ int main()
 {
     // GPIO pin number based on WiringPi
     // Right Motor
-    int rightMotorEn = 0;     // Pin 11
-    int rightMotorPin1 = 1;   // Pin 12
-    int rightMotorPin2 = 2;   // Pin 13
+    int right_motor_en = 0;     // Pin 11
+    int right_motor_pin_1 = 1;   // Pin 12
+    int right_motor_pin_2 = 2;   // Pin 13
     // Left Motor
-    int leftMotorEn = 7;     // Pin 7
-    int leftMotorPin1 = 29;  // Pin 40
-    int leftMotorPin2 = 25;  // Pin 37
+    int left_motor_en = 7;     // Pin 7
+    int left_motor_pin_1 = 29;  // Pin 40
+    int left_motor_pin_2 = 25;  // Pin 37
     
     DualMotorPi motor;
-    motor.Init(rightMotorEn, rightMotorPin1, rightMotorPin2, leftMotorEn, leftMotorPin1, leftMotorPin2);
+    motor.Init(right_motor_en, right_motor_pin_1, right_motor_pin_2, left_motor_en, left_motor_pin_1, left_motor_pin_2);
 
     std::cout << "[1] Move forward\n";
     std::cout << "[2] Move backward\n";

@@ -14,22 +14,22 @@ class DualMotorPi {
         /**
          * Motors defined as right and left motors.
          */
-        MotorPi rightMotor;
-        MotorPi leftMotor;
+        MotorPi right_motor_;
+        MotorPi left_motor_;
 
     public:
         /**
          * Initialize dual bridge channel of L298 driver with given GPIO pin. 
          * 
-         * @param rightPinEn    {int}   Enable pin for right motor
-         * @param rightPin1     {int}   Input 1 pin for right motor
-         * @param rightPin2     {int}   Input 2 pin for right motor
-         * @param leftPinEn     {int}   Enable pin for left motor
-         * @param leftPin1      {int}   Input 1 pin for left motor
-         * @param leftPin2      {int}   Input 2 pin for left motor
+         * @param right_pin_enabl   {int}   Enable pin for right motor
+         * @param right_pin_1       {int}   Input 1 pin for right motor
+         * @param right_pin_2       {int}   Input 2 pin for right motor
+         * @param left_pin_enable   {int}   Enable pin for left motor
+         * @param left_pin_1        {int}   Input 1 pin for left motor
+         * @param left_pin_2        {int}   Input 2 pin for left motor
          */
-        void Init(int rightPinEn, int rightPin1, int rightPin2,
-                  int leftPinEn, int leftPin1, int leftPin2);
+        void Init(int right_pin_enable, int right_pin_1, int right_pin_2,
+                  int left_pin_enable, int left_pin_1, int left_pin_2);
 
         /**
          * Stop motors

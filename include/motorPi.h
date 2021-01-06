@@ -9,18 +9,18 @@
  */ 
 class MotorPi {
     private:
-        int pinEN;
-        int pinIN1, pinIN2;
+        int pin_enable_;
+        int pin_in_1_, pin_in_2_;
 
     public:
         /**
          * Initialize 1 bridge channel of L298 driver with given GPIO pin. 
          * 
-         * @param pinEn     {int}   Enable pin
-         * @param pinIn1    {int}   Input 1 pin
-         * @param pinIn2    {int}   Input 2 pin
+         * @param pin_enable    {int}   Enable pin
+         * @param pin_in_1      {int}   Input 1 pin
+         * @param pin_in_2      {int}   Input 2 pin
          */
-        void Init(int pinEn, int pinIn1, int pinIn2);
+        void Init(int pin_enable, int pin_in_1, int pin_in_2);
 
         /**
          * Stop motor
