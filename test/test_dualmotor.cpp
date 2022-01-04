@@ -24,8 +24,8 @@ int main()
     std::cout << "[0]  Stop\n";
     std::cout << "[1]  Move forward\n";
     std::cout << "[2]  Move backward\n";
-    std::cout << "[3]  Turn right (90 deg using timer only)\n";
-    std::cout << "[4]  Turn left (90 deg using timer only)\n";
+    std::cout << "[3]  Turn right (90 deg using timer)\n";
+    std::cout << "[4]  Turn left (90 deg using timer)\n";
     std::cout << "[5]  Rotate right\n";
     std::cout << "[6]  Rotate left\n";
     std::cout << "[99] Exit program\n";
