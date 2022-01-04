@@ -27,7 +27,7 @@ void DualMotorPi::MoveBackward(double speed) {
     left_motor_.MoveBackward(speed);
 }
 
-void DualMotorPi::Rotate(double angle) {
+void DualMotorPi::Rotate(double angle, bool time_limit) {
     if (angle>0){
         right_motor_.MoveForward();
         left_motor_.MoveBackward();
@@ -37,21 +37,23 @@ void DualMotorPi::Rotate(double angle) {
         right_motor_.MoveBackward();
     }
 
-    // Currently using onlt sleep to control angle
-    // Assumed 90deg/sec
-    double i;
-    double set_time = 2 * abs(angle)/M_PI;
-    for (i=0; i < set_time; i+=0.01) {
-        usleep(10000);
+    if (time_limit) {
+        // Currently using only sleep to control angle
+        // Assumed 90deg/sec
+        double i;
+        double set_time = 2 * abs(angle)/M_PI;
+        for (i=0; i < set_time; i+=0.01) {
+            usleep(10000);
+        }
+        
+        DualMotorPi::Stop();
     }
-
-    DualMotorPi::Stop();
 }
 
-void DualMotorPi::TurnLeft(double angle) {
-    DualMotorPi::Rotate(angle);
+void DualMotorPi::TurnLeft(double angle, bool time_limit) {
+    DualMotorPi::Rotate(angle, time_limit);
 }
 
-void DualMotorPi::TurnRight(double angle) {
-    DualMotorPi::Rotate(-1 * angle);
+void DualMotorPi::TurnRight(double angle, bool time_limit) {
+    DualMotorPi::Rotate(-1 * angle, time_limit);
 }

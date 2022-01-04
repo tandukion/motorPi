@@ -64,19 +64,19 @@ class DualMotorPi {
          * 
          * @param angle {double}    Angle of rotation in radian.
          */
-        void Rotate(double angle=0);
+        void Rotate(double angle=0, bool time_limit=false);
         /**
          * Rotate the system to the right (clockwise of Z-axis).
          * 
          * @param angle {double}    Angle of rotation in radian.
          */
-        void TurnLeft(double angle=0);
+        void TurnLeft(double angle=0, bool time_limit=false);
         /**
          * Rotate the system to the left (counter-clockwise of Z-axis).
          * 
          * @param angle {double}    Angle of rotation in radian.
          */
-        void TurnRight(double angle=0);
+        void TurnRight(double angle=0, bool time_limit=false);
 };
 
 #endif
